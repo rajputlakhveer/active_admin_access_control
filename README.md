@@ -42,6 +42,53 @@ Then, run the seed command:
 
     $ rails db:seed
 
+## Update Admin User File
+
+We need to update admin user files accordingly: 
+
+    # app/admin/admin_users.rb
+    ActiveAdmin.register AdminUser do
+      permit_params :email, :password, :password_confirmation, :role_id
+
+      index do
+        selectable_column
+        id_column
+        column :email
+        column :role
+        column :current_sign_in_at
+        column :sign_in_count
+        column :created_at
+        actions
+      end
+
+      filter :email
+      filter :current_sign_in_at
+      filter :sign_in_count
+      filter :created_at
+
+      form do |f|
+        f.inputs do
+          f.input :email
+          f.input :password
+          f.input :password_confirmation
+          f.input :role
+        end
+        f.actions
+      end
+    end
+ 
+    # app/models/admin_user.rb
+    class AdminUser < ApplicationRecord
+      # Include default devise modules. Others available are:
+      # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+      devise :database_authenticatable, 
+         :recoverable, :rememberable, :validatable
+  
+      belongs_to :role
+    end
+
+
+
 ## Accessing Roles and Permissions
 Once everything is set up, you can access roles and permissions within the Active Admin panel. Navigate to the appropriate section to manage roles and assign permissions to users.
 
