@@ -3,10 +3,10 @@
 active_admin_access_control is a gem designed to simplify access control management within Active Admin using roles and permissions. It provides an easy way to define roles, assign permissions, and manage user access within the Active Admin panel.
 
 # Features
-Define roles and permissions for users.
-Assign roles to users.
-Manage permissions for each role.
-Access control directly within the Active Admin panel.
+- Define roles and permissions for users.
+- Assign roles to users.
+- Manage permissions for each role.
+- Access control directly within the Active Admin panel.
 
 
 ## Installation
