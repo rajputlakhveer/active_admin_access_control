@@ -1,8 +1,13 @@
 # ActiveAdminAccessControl
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/active_admin_access_control`. To experiment with that code, run `bin/console` for an interactive prompt.
+active_admin_access_control is a gem designed to simplify access control management within Active Admin using roles and permissions. It provides an easy way to define roles, assign permissions, and manage user access within the Active Admin panel.
 
-TODO: Delete this and the text above, and describe your gem
+# Features
+Define roles and permissions for users.
+Assign roles to users.
+Manage permissions for each role.
+Access control directly within the Active Admin panel.
+
 
 ## Installation
 
@@ -14,24 +19,43 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
     $ gem install active_admin_access_control
 
+
 ## Usage
 
-TODO: rails generate active_admin_access_control:install
+    $ rails generate active_admin_access_control:install
+This command will set up the necessary files and configurations for access control.
 
-## Development
+## Running Migrations
+Run the migrations to set up the necessary database tables:
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake bundle config gem.spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+    $ rails db:migrate
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+## Seed Data
+In your seed file (db/seeds.rb), comment out the creation of the default Active Admin admin_user:
+
+
+    # db/seeds.rb
+    # AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+
+Then, run the seed command:
+
+
+    $ rails db:seed
+
+## Accessing Roles and Permissions
+Once everything is set up, you can access roles and permissions within the Active Admin panel. Navigate to the appropriate section to manage roles and assign permissions to users.
 
 ## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/active_admin_access_control. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/active_admin_access_control/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/rajputlakhveer/active_admin_access_control.
 
 ## License
+The gem is available as open source under the terms of the MIT License.
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+## Acknowledgments
+This gem was inspired by the need for a simple yet powerful access control solution within Active Admin.
 
-## Code of Conduct
+## Support
+For any questions, issues, or feature requests, please open an issue.
 
-Everyone interacting in the ActiveAdminAccessControl project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/active_admin_access_control/blob/master/CODE_OF_CONDUCT.md).
+## Author
+Lakhveer Singh Rajput
